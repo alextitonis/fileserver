@@ -46,7 +46,7 @@ app.post("/upload", (req, res) => {
   const filename = `uploads/${uuid}.png`;
   const base64Data = img.replace(/^data:image\/png;base64,/, "");
   fs.writeFileSync(filename, base64Data, "base64");
-  const imageUrl = `${req.protocol}://${req.get("host")}/images/${filename}`;
+  const imageUrl = `https://${req.get("host")}/${filename}`;
   res.send({ imageUrl });
 });
 
